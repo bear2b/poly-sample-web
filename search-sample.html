@@ -89,7 +89,16 @@ limitations under the License.
 		<span id="viewer"></span>
 		<div id="info">
 			<span id="asset_name">Title</span><br/>
-			by <span id="asset_author">Author</span>
+			<span id="asset_author">Author</span><br/>
+
+			<span id="asset_description">Description</span><br/>
+						<span id="asset_createTime">Created</span><br/>
+						<span id="asset_updateTime">Updated</span><br/>
+						<span id="asset_gltf">URL gltf</span><br/>
+						<span id="asset_bin">URL bin</span><br/>
+						<textarea id="textinput" cols="40" rows="5"></textarea>
+						
+
 		</div>
 
 		<script src="third_party/three.js/js/three.min.js"></script>
@@ -145,7 +154,7 @@ limitations under the License.
 
 			// POLY REST API
 
-			const API_KEY = '*** INSERT YOUR API KEY HERE ***';
+			const API_KEY = 'AIzaSyBozvzOE5iUQLtkh2bzz7nrHE__BwtcCSE';
 
 			function searchPoly( keywords, onLoad ) {
 
@@ -183,8 +192,18 @@ limitations under the License.
 
 						}
 
+						//display info
+
 						asset_name.textContent = asset.displayName;
 						asset_author.textContent = asset.authorName;
+						asset_description.textContent = asset.description;
+						asset_createTime.textContent = asset.createTime;
+						asset_updateTime.textContent = asset.updateTime;
+						asset_gltf.textContent = asset.formats[0].root.url;
+						asset_bin.textContent = asset.formats[0].resources[0].url;
+
+						document.getElementById('textinput').value = JSON.stringify(asset, null, 4);
+
 
 						var obj = format.root;
 						var mtl = format.resources.find( resource => { return resource.url.endsWith( 'mtl' ) } );
