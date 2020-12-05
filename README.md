@@ -8,16 +8,8 @@ a web app.
 
 ## How to run
 
-First, generate an API Key for the Poly API following the instructions in [the
+I generated an API Key for the Poly API following the instructions in [the
 developer documentation](https://developers.google.com/poly/develop).
-
-Then, enter your API key in each of the HTML files in this sample, replacing
-the value of the `API_KEY` variable:
-
-    const API_KEY = "*** INSERT YOUR API KEY HERE ***";
-
-When replacing, do not leave the asterisks, replace the entire string by
-your API Key.
 
 Place the sample files at the root directory of your web server.
 If you have Python installed, you can use the `SimpleHTTPServer` module
